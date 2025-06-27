@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>イラストガチャ</title>
+  <style>
+    body { text-align: center; font-family: sans-serif; padding-top: 50px; }
+    img { max-width: 80%; height: auto; margin-top: 20px; }
+    button { font-size: 20px; padding: 10px 20px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>イラストガチャ🎨</h1>
+  <p>ボタンを押してランダムにイラストが出てくるよ！</p>
+  <button onclick="draw()">ガチャを引く！</button>
+  <div id="result"></div>
+
+  <script>
+    const images = [
+      'images/01_アイアイ.png',
+      'images/02_センザンコウ.png',
+      'images/03_カカポ.png',
+      'images/04_キーウィ.png',
+      'images/05_ハシビロコウ.png',
+      'images/06_オオサンショウオ.png',
+      'images/07_ブロブフィッシュ.png',
+      'images/08_マーモット.png',
+      'images/09_きゃふんきゃふん.png',
+      // 必要に応じて追加
+    ];
+
+    function draw() {
+      const rand = Math.floor(Math.random() * images.length);
+      const imgUrl = images[rand];
+      document.getElementById('result').innerHTML = `
+        <img src="${imgUrl}" alt="ガチャ結果">
+        <p><a href="https://twitter.com/intent/tweet?text=イラストガチャを引いたよ！&url=${location.href}" target="_blank">▶ Xでシェアする</a></p>
+      `;
+    }
+  </script>
+</body>
+</html>
